@@ -35,51 +35,24 @@ Game.setup = function(){
 	Game.counter = 0;
 	var updateDisplay = $(".display");
 	Game.text = [];
-	// Game.getValue();
 	this.buildBoxes = (prompt("How long a code do you want to unlock?"));
 	Game.createValues();
 	$("#submit").on("click",Game.submitValue);
+	$("#reset").on("click",Game.reset);
+
 
 }
-
-	
-
-
-
-	// $("#submit").on("click",updateDisplay)
-
-// getting a answer for the player to guess
-
-// Game.getValue = function(){
-	
-// 	var range = [1,2,3,4,5,6,7,8,9,0];
-
-// 	var score1 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
-// 	var score2 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
-// 	var score3 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
-// 	var score4 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
-
-
-// 	Game.text.push(score1,score2,score3,score4)
-// 	console.log(Game.text)
-// 	Game.check();
-
-// }
-
 // Take the users input and create a set of variables based on their inuput/
 Game.createValues = function (){
 	Game.score = [];
 	var range = [1,2,3,4,5,6,7,8,9,0];
-for (var i = 0 ; i < Game.buildBoxes; i ++){
-	$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers'>");
-	Game.score[i] = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+	for (var i = 0 ; i < Game.buildBoxes; i ++){
+		$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers'>");
 
-
+		Game.score[i] = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+	}
+	console.log(Game.score);
 }
-console.log(Game.score);
-}
-
-
 	// pushing the users answer into an array
 
 	Game.submitValue = function(){
@@ -87,66 +60,53 @@ console.log(Game.score);
 
 		for (var i = 0 ; i<Game.score.length; i++){
 			playerGo.push(parseInt($('#num'+i).val()));
-
 		}
 
-		console.log(playerGo);
-			Game.countAnimals(playerGo);
-
-
-		}
-
-
-		// var num1 = $("#num1").val();
-		// var num2 = $("#num2").val();
-		// var num3 = $("#num3").val();
-		// var num4 = $("#num4").val();
-
-		// var numInt1 = parseInt(num1);
-		// var numInt2 = parseInt(num2);
-		// var numInt3 = parseInt(num3);
-		// var numInt4 = parseInt(num4);
-
-		// playerGo.push(numInt1);
-		// playerGo.push(numInt2);
-		// playerGo.push(numInt3);
-		// playerGo.push(numInt4);
-
+		$(".scores").append('<br/>'+ playerGo);
+		console.log("the user has submitted" + " " + playerGo);
+		Game.countAnimals(playerGo);
+	}
 
 
 	// // Going through the users answer to see if they match up
 
-	 Game.countAnimals = function(playerGo){
+	Game.countAnimals = function(playerGo){
 
-	 	var count = {bulls:0, cows:0};
-	 	for (var i = 0; i < playerGo.length; i++) {
-	 		var digPresent = playerGo.indexOf(Game.text[i]);
-	 		if (playerGo[i] == Game.text[i]) {count.bulls++;}
-	 		else if (digPresent>=0) {count.cows++; Game.counter++}
+		var count = {bulls:0, cows:0};
+		Game.counter = 1;
+		for (var i = 0; i < playerGo.length; i++) {
+			var digPresent = playerGo.indexOf(Game.score[i]);
+			if (playerGo[i] == Game.score[i]) {count.bulls++;}
+			else if (digPresent>=0) {count.cows++;}
+			Game.counter++
+			if (count.bulls == playerGo.length && Game.counter < 7){
+				console.log("you have won")}
+				else if (count.bulls !== playerGo.length && Game.counter < 7) {
+					console.log("Sorry Homes")}
+					else if (count.bulls !== playerGo.length && Game.counter > 7 ){console.log ("you lose");}
 
-			
+				
+
+
+				}
+				// $("#boxes").html(" ");
+				$(".scoreboard1").append('<br/>'+count.cows);
+				$(".scoreboard2").append('<br/>'+count.bulls);
+				console.log("there are" + " " + count.cows + " " + "cows");
+				console.log("there are" + " " + count.bulls + " " + "bulls")
+
 		}
-	 	console.log("there are" + " " + count.cows + " " + "cows");
-	 	console.log("there are" + " " + count.bulls + " " + "bulls")
+		
+	// Reset fields
 
-	 }
-
-
-
-
-
-
+	Game.reset = function(){
+		Game.counter = 1;
+		$(".scoreboard1").html("");
+		$(".scoreboard2").html("");
+		$(".scores").html("");
 
 
+	}
 
-
-// Loop over check the playerrGo and see if any of the numbers match those of that in the variable text
-
-
-
-
-// Game.updateDisplay = function(){
-
-// }
 
 
