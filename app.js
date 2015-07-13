@@ -36,19 +36,24 @@ Game.setup = function(){
 	var updateDisplay = $(".display");
 	Game.text = [];
 	Game.getValue();
-	var code = prompt("How long a code do you want to unlock?");
-	var answer = parseFloat(code);
+	this.buildBoxes = (prompt("How long a code do you want to unlock?"));
+	Game.createValues();
+}
 
-	}
+	
 
 Game.check = function(){
 	$("#submit").on("click",Game.submitValues);
 }
 
-Game.boxes = function(){
-}
+// Game.addInput = function(this.buildBoxes){
+// 	$(".boxes").append
+// }
 
-// 	// $("#submit").on("click",updateDisplay)
+
+
+
+	// $("#submit").on("click",updateDisplay)
 
 // getting a answer for the player to guess
 
@@ -66,6 +71,16 @@ Game.getValue = function(){
 	console.log(Game.text)
 	Game.check();
 
+}
+
+// Take the users input and create a set of variables based on their inuput/
+Game.createValues = function (){
+	// var range = [1,2,3,4,5,6,7,8,9,0];
+for (var i = 0 ; i < Game.buildBoxes; i ++){
+	// $("#boxes").append("<input type="text" id="num[i]" class="numbers">");
+	$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers'>");
+
+}
 }
 
 
@@ -112,10 +127,8 @@ Game.getValue = function(){
 
 
 
-// Game.getValue();
 
 
-// Game.countAnimals();
 
 
 
