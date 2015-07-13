@@ -23,52 +23,111 @@
 
 
 $(function(){     
-  Game.setup();
+	Game.setup();
 }); 
 
 var Game = {};
 
 
-// Setting up initial variables
+// // Setting up initial variables
 
 Game.setup = function(){
+	Game.counter = 0;
+	var updateDisplay = $(".display");
+	Game.text = [];
+	Game.getValue();
+	var code = prompt("How long a code do you want to unlock?");
+	var answer = parseFloat(code);
+
+	}
+
+Game.check = function(){
+	$("#submit").on("click",Game.submitValues);
+}
+
+Game.boxes = function(){
+}
+
+// 	// $("#submit").on("click",updateDisplay)
+
+// getting a answer for the player to guess
+
+Game.getValue = function(){
 	
+	var range = [1,2,3,4,5,6,7,8,9,0];
+
+	var score1 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+	var score2 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+	var score3 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+	var score4 = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
+
+
+	Game.text.push(score1,score2,score3,score4)
+	console.log(Game.text)
 	Game.check();
+
+}
+
+
+	// pushing the users answer into an array
+
+	Game.submitValues = function(){
+		var playerGo = [];
+		var num1 = $("#num1").val();
+		var num2 = $("#num2").val();
+		var num3 = $("#num3").val();
+		var num4 = $("#num4").val();
+
+		var numInt1 = parseInt(num1);
+		var numInt2 = parseInt(num2);
+		var numInt3 = parseInt(num3);
+		var numInt4 = parseInt(num4);
+
+		playerGo.push(numInt1);
+		playerGo.push(numInt2);
+		playerGo.push(numInt3);
+		playerGo.push(numInt4);
+
+		Game.countAnimals(playerGo);
+
+
+	}
+
+	// Going through the users answer to see if they match up
+
+	Game.countAnimals = function(playerGo){
+
+		var count = {bulls:0, cows:0};
+		for (var i = 0; i < playerGo.length; i++) {
+			var digPresent = playerGo.indexOf(Game.text[i]);
+			if (playerGo[i] == Game.text[i]) {count.bulls++;}
+			else if (digPresent>=0) {count.cows++; Game.counter++}
+
+			
+		}
+		console.log("there are" + " " + count.cows + " " + "cows");
+		console.log("there are" + " " + count.bulls + " " + "bulls")
+
 	}
 
 
-// Setting up event listeners
-Game.check = function(){
-$("#submit").on("click",submitValues);
-text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-    return text;
-    
-}
+// Game.getValue();
 
 
-Game.submitValues = function(num){
-	var playerGo = [];
-	var num1 = $(".num1").val();
-	var num2 = $(".num2").val();
-	var num3 = $(".num3").val();
-	var num4 = $(".num4").val();
-
-playerGo.push(num1,num2,num3,num4)
-
-playerGo = playerGo.map (function() {
-	return parseInt(num,10);
-})
-
-console.log(playerGo);
-
-return(playerGo)
-}
+// Game.countAnimals();
 
 
 
-// Game.checkForWinner = function(){
-// 	console.log(playerGo);
-// 	if 
-// };
+
+
+// Loop over check the playerrGo and see if any of the numbers match those of that in the variable text
+
+
+
+
+// Game.updateDisplay = function(){
+
+// }
+
 
