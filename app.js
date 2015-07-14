@@ -46,10 +46,13 @@ Game.setup = function(){
 	this.buildBoxes = $('#numberOfCode').val();
 	Game.createValues();
 
-	$("#submit").on("click",Game.submitValue);
+	$("#submit").on("click", function(){
+		Game.submitValue();
+	})
 	$("#reset").on("click",Game.reset);
 	$("#single").on("click",Game.howMany);
 	$("#two").on("click",Game.howMany);
+
 	
 
 
@@ -83,29 +86,29 @@ Game.createValues = function (){
 	// // Going through the users answer to see if they match up
 
 	Game.countAnimals = function(playerGo){
-		var soundsArray = ["sounds/You%20In%20Trouble.mp3","sounds/Quit%20Playing%20Ear%20Copy.mp3","sounds/Quit%20Being%20A%20Bitch.mp3","sounds/Ass%20is%20dead.mp3"];
+		var soundsArray = ["sounds/You%20In%20Trouble.mp3","sounds/Quit%20Playing%20Ear%20Copy.mp3","sounds/Quit%20Being%20A%20Bitch.mp3","sounds/Ass%20is%20dead.mp3","sounds/Ass%20in%20a%20Taco.mp3","sounds/New%20Recording.mp3"];
 		var rand = soundsArray[Math.floor(Math.random()*soundsArray.length)];
 		var count = {bulls:0, cows:0};
-		Game.counter = 1;
+		Game.counter += 1;
 		for (var i = 0; i < playerGo.length; i++) {
 			var digPresent = playerGo.indexOf(Game.score[i]);
 			if (playerGo[i] == Game.score[i]) {count.bulls++;}
 			else if (digPresent>=0) {count.cows++;}
-			Game.counter++
 		}
 		if (count.bulls === playerGo.length && Game.counter < 7){
 			mySound2 = new Audio("sounds/Freedom%20Tastes%20Good.mp3");
 			mySound2.play(); 
-			console.log("youwin")}
-			else if (count.bulls !== playerGo.length && Game.counter < 7) {
-				mySound1 = new Audio(rand);
-				mySound1.play();
-				console.log("try again") }
-				else if (Game.counter > 7 ){
-					mySound = new Audio("sounds/Kill%20You%20Dog.mp3");
-					mySound.play();
-					console.log("game over") 
-				}
+			console.log("youwin")
+			$("#display").text("You win")
+		}else if (count.bulls !== playerGo.length && Game.counter < 7) {
+			mySound1 = new Audio(rand);
+			mySound1.play();
+			$("#display").text("Try again"); 
+		}else if (Game.counter > 7 ){
+			mySound = new Audio("sounds/Kill%20You%20Dog.mp3");
+			mySound.play();
+			console.log("game over") 
+		}
 
 			
 				$("#scoreboard1").append('<br/>'+count.cows);
@@ -119,11 +122,16 @@ Game.createValues = function (){
 	// Reset fields
 
 	Game.reset = function(){
-	Game.setup();
-		Game.counter = 1;
-		$("#scoreboard1").html("");
-		$("#scoreboard2").html("");
-		$("#scores").html("");
+		// Game.counter = 1;
+		// $("#scoreboard1").html("");
+		// $("#scoreboard2").html("");
+		// $("#scores").html("");
+
+		// $('#boxes').html("");
+		// Game.setup();
+
+
+		location.reload();
 
 	}
 

@@ -13,8 +13,8 @@
 <div id="overlay">
 <h1>Escape</h1>
 <h3>How long a code do you want to unlock?</h3>
-<input id="numberOfCode" type="number">
-<button id="submitButton">Play</button>
+<input id="numberOfCode" type="number" class="begin">
+<button id="submitButton" class="begin">Play</button>
 <img src="el_chapo.png" class="chapo">
 <div id="text-container">
 <p>You have been hired by El Chapo Guzman to help him escape from prison./
@@ -30,7 +30,12 @@ As a clue you will be told either Zeta,Sineloa or nothing.</p>
 
 
 <main>
-<div id="boxes"></div>
+<div id="padlock">
+	<img src="padlock.png">
+	<div id="boxes"></div>
+</div>
+
+
 <div id="scores" class="scores">
 <h2>Attempts</h2>
 </div>
@@ -46,22 +51,15 @@ As a clue you will be told either Zeta,Sineloa or nothing.</p>
 
 <div class="section1">
 
-<input type="button" id="submit" class="numbers" value="Guess">
-<input type="button" id="reset" class ="numbers" value="Reset">
+<input type="button" id="submit" class="begin" value="Guess">
+<input type="button" id="reset" class ="begin" value="Reset">
 
 
 </main>
-<div class="display">
-
-	
-
+<div id="display">
+<input type="text" id="display" value="">
 </div>
 
-<div class="select-levels">
-<input type="button" id="easy" value="Single" class="levels">
-<input type="button" id="intermediate" value="Two" class="levels">
-
-</div>
 
 
 
