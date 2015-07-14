@@ -21,6 +21,20 @@
 // add to counter
 
 
+// $(function(){
+//     $("#submitButton").on("click", function() {
+        
+//         $("body").animate({
+//             "scrollTop": $('.content').offset().top
+//         }, 2000, function(){
+//             // .setUp(size);
+//         });
+//     });
+// });
+
+
+
+
 
 $(function(){  
 
@@ -28,6 +42,12 @@ $(function(){
 		Game.setup();
 		document.getElementById("submitButton").style.display='none'
 		$("#numberOfCode").attr("type", "hidden");
+
+		$("body").animate({
+		    "scrollTop": $('.content').offset().top
+		}, 2000, function(){
+		    // .setUp(size);
+		});
 	})   
 	
 }); 
@@ -46,7 +66,7 @@ Game.setup = function(){
 	this.buildBoxes = $('#numberOfCode').val();
 	Game.createValues();
 
-	$("#submit").on("click", function(){
+	$("#key").on("click", function(){
 		Game.submitValue();
 	})
 	$("#reset").on("click",Game.reset);
@@ -108,7 +128,7 @@ Game.createValues = function (){
 		}else if (Game.counter > 7 ){
 			mySound = new Audio("sounds/Kill%20You%20Dog.mp3");
 			mySound.play();
-			console.log("game over") 
+			$("#display").text("Game over you dead!"); 
 		}
 
 			

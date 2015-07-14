@@ -27,7 +27,7 @@ header {
 
 #overlay {
 	width:100%;
-	height:889px;
+	height:960px;
 	background-color: rgba(17,17,17, 0.6);
 }
 
@@ -38,6 +38,7 @@ div#padlock {
 #padlock img {
 	margin-bottom: -184px;
 	float:left;
+	margin-top: 20px;
 }
 
 .numbers {
@@ -54,18 +55,17 @@ div#padlock {
 		height:70px;
 		width:180px;
 		border-radius: 25px
-		font-size:38px;
+		font-size:26px;
 		display: inline-block;
 		text-align: center;
 	}
 
 #display {
+margin: 0 auto;
+margin-top: 10px;
 height:50px;
 width:200px;
-position: relative;
 background-color: transparent;
-top:-250px;
-left:410px;
 
 
 }
@@ -81,7 +81,7 @@ color:white;
 margin-top: 100px;}
 
 .chapo {
-	height:50%
+	height:65%
 }
 
 h1 {
@@ -100,8 +100,31 @@ section {
 	width:600px;
 	margin-top: 38px;
 	margin-bottom: 200px
+	margin-right:10px;
 	position: relative;
 	top:100px;
+	margin-left: 80px;
 }
+
+main {
+	height: 756px;
+}
+
+img#key {
+	width:100px;
+	margin-left: 195px;
+}
+
+.section1 {
+	width: 640px;
+	  float: right;
+	  margin-right: 109px;
+}
+
+input#reset.begin {
+	margin-top: 10px;
+}
+
+
 
 
