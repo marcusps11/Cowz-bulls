@@ -62,7 +62,7 @@ Game.createValues = function (){
 	Game.score = [];
 	var range = [1,2,3,4,5,6,7,8,9,0];
 	for (var i = 0 ; i < Game.buildBoxes; i ++){
-		$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers' maxlength='1'>");
+		$("#boxes").append("<input type='number' id='num"+ i +"' class='numbers' maxlength='1'>");
 
 		Game.score[i] = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
 	}
@@ -100,6 +100,7 @@ Game.createValues = function (){
 			mySound2.play(); 
 			console.log("youwin")
 			$("#display").text("You win")
+			$("#myimage").attr("src", "openpadlock.png")
 		}else if (count.bulls !== playerGo.length && Game.counter < 7) {
 			mySound1 = new Audio(rand);
 			mySound1.play();

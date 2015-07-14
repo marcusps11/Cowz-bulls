@@ -12,10 +12,6 @@
 <header>
 <div id="overlay">
 <h1>Escape</h1>
-<h3>How long a code do you want to unlock?</h3>
-<input id="numberOfCode" type="number" class="begin">
-<button id="submitButton" class="begin">Play</button>
-<img src="el_chapo.png" class="chapo">
 <div id="text-container">
 <p>You have been hired by El Chapo Guzman to help him escape from prison./
 Between you and freedom is one simple combination lock.  Help him escape or/
@@ -24,14 +20,19 @@ you will pay with your life.</p>
 As a clue you will be told either Zeta,Sineloa or nothing.</p>
 <p>Sineloa's = correct code, correct position.</p>
 <p>Zetas = correct code, wrong position.</p>
+<br>
+<h3>How long a code do you want to unlock?</h3>
+<input id="numberOfCode" type="number" class="begin">
+<button id="submitButton" class="begin">Play</button>
 </div>
+<img src="el_chapo.png" class="chapo">
 </div>
 </header>
 
 
 <main>
 <div id="padlock">
-	<img src="padlock.png">
+	<img src="padlock.png" id="myimage">
 	<div id="boxes"></div>
 </div>
 
