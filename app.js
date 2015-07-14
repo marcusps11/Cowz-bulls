@@ -22,8 +22,14 @@
 
 
 
-$(function(){     
-	Game.setup();
+$(function(){  
+
+	$('#submitButton').on("click", function(){
+		Game.setup();
+		document.getElementById("submitButton").style.display='none'
+		$("#numberOfCode").attr("type", "hidden");
+	})   
+	
 }); 
 
 var Game = {};
@@ -34,11 +40,17 @@ var Game = {};
 Game.setup = function(){
 	Game.counter = 0;
 	var updateDisplay = $(".display");
+	this.single = $("#single")
+	this.two = $("#two")
 	Game.text = [];
-	this.buildBoxes = (prompt("How long a code do you want to unlock?"));
+	this.buildBoxes = $('#numberOfCode').val();
 	Game.createValues();
+
 	$("#submit").on("click",Game.submitValue);
 	$("#reset").on("click",Game.reset);
+	$("#single").on("click",Game.howMany);
+	$("#two").on("click",Game.howMany);
+	
 
 
 }
@@ -47,7 +59,7 @@ Game.createValues = function (){
 	Game.score = [];
 	var range = [1,2,3,4,5,6,7,8,9,0];
 	for (var i = 0 ; i < Game.buildBoxes; i ++){
-		$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers'>");
+		$("#boxes").append("<input type='text' id='num"+ i +"' class='numbers' maxlength='1'>");
 
 		Game.score[i] = parseInt(Math.floor(Math.random() * (9 - 0)) + 0);
 	}
@@ -62,7 +74,7 @@ Game.createValues = function (){
 			playerGo.push(parseInt($('#num'+i).val()));
 		}
 
-		$(".scores").append('<br/>'+ playerGo);
+		$("#scores").append('<br/>'+ playerGo);
 		console.log("the user has submitted" + " " + playerGo);
 		Game.countAnimals(playerGo);
 	}
@@ -71,7 +83,8 @@ Game.createValues = function (){
 	// // Going through the users answer to see if they match up
 
 	Game.countAnimals = function(playerGo){
-
+		var soundsArray = ["sounds/You%20In%20Trouble.mp3","sounds/Quit%20Playing%20Ear%20Copy.mp3","sounds/Quit%20Being%20A%20Bitch.mp3","sounds/Ass%20is%20dead.mp3"];
+		var rand = soundsArray[Math.floor(Math.random()*soundsArray.length)];
 		var count = {bulls:0, cows:0};
 		Game.counter = 1;
 		for (var i = 0; i < playerGo.length; i++) {
@@ -79,34 +92,52 @@ Game.createValues = function (){
 			if (playerGo[i] == Game.score[i]) {count.bulls++;}
 			else if (digPresent>=0) {count.cows++;}
 			Game.counter++
-			if (count.bulls == playerGo.length && Game.counter < 7){
-				console.log("you have won")}
-				else if (count.bulls !== playerGo.length && Game.counter < 7) {
-					console.log("Sorry Homes")}
-					else if (count.bulls !== playerGo.length && Game.counter > 7 ){console.log ("you lose");}
-
-				
-
-
+		}
+		if (count.bulls === playerGo.length && Game.counter < 7){
+			mySound2 = new Audio("sounds/Freedom%20Tastes%20Good.mp3");
+			mySound2.play(); 
+			console.log("youwin")}
+			else if (count.bulls !== playerGo.length && Game.counter < 7) {
+				mySound1 = new Audio(rand);
+				mySound1.play();
+				console.log("try again") }
+				else if (Game.counter > 7 ){
+					mySound = new Audio("sounds/Kill%20You%20Dog.mp3");
+					mySound.play();
+					console.log("game over") 
 				}
-				// $("#boxes").html(" ");
-				$(".scoreboard1").append('<br/>'+count.cows);
-				$(".scoreboard2").append('<br/>'+count.bulls);
+
+			
+				$("#scoreboard1").append('<br/>'+count.cows);
+				$("#scoreboard2").append('<br/>'+count.bulls);
 				console.log("there are" + " " + count.cows + " " + "cows");
 				console.log("there are" + " " + count.bulls + " " + "bulls")
+				console.log(Game.counter);
 
-		}
-		
+			}
+
 	// Reset fields
 
 	Game.reset = function(){
+	Game.setup();
 		Game.counter = 1;
-		$(".scoreboard1").html("");
-		$(".scoreboard2").html("");
-		$(".scores").html("");
-
+		$("#scoreboard1").html("");
+		$("#scoreboard2").html("");
+		$("#scores").html("");
 
 	}
+
+
+
+	// Game.selectDifficulty {
+		
+	// }
+
+	// Game.playSounds = function(){
+	// 	$(#submit).on("click",function(){
+	// 		var sound = this.id
+	// 	})
+	// }
 
 
 

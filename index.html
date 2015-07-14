@@ -2,20 +2,47 @@
 <html>
 <head>
 	<title>Bulls & Cows</title>
-	
+	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body>
+
 <header>
-<h1>Break Out</h1>
+<div id="overlay">
+<h1>Escape</h1>
+<h3>How long a code do you want to unlock?</h3>
+<input id="numberOfCode" type="number">
+<button id="submitButton">Play</button>
+<img src="el_chapo.png" class="chapo">
+<div id="text-container">
+<p>You have been hired by El Chapo Guzman to help him escape from prison./
+Between you and freedom is one simple combination lock.  Help him escape or/
+you will pay with your life.</p>
+<p> The combination is made up of numbers between 0-9 and you have 7 attempts to guess./
+As a clue you will be told either Zeta,Sineloa or nothing.</p>
+<p>Sineloa's = correct code, correct position.</p>
+<p>Zetas = correct code, wrong position.</p>
+</div>
+</div>
 </header>
+
+
 <main>
 <div id="boxes"></div>
-<div class="scores"></div>
-<div class="scoreboard1"></div>
-<div class="scoreboard2"></div>
+<div id="scores" class="scores">
+<h2>Attempts</h2>
+</div>
+<div id="scoreboard1" class="scores">
+<!-- 	<img src="sineloa.png">
+ -->	<h2>Zetas</h2>
+</div>
+<div id="scoreboard2" class="scores">
+<!-- 	<img src="mexico.png">
+ -->	<h2>Sineloa's</h2>
+
+</div>
 
 <div class="section1">
 
@@ -25,6 +52,14 @@
 
 </main>
 <div class="display">
+
+	
+
+</div>
+
+<div class="select-levels">
+<input type="button" id="easy" value="Single" class="levels">
+<input type="button" id="intermediate" value="Two" class="levels">
 
 </div>
 
