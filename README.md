@@ -26,9 +26,9 @@ Screen Shot 2015-07-15 at 16.01.58
 
 #Rules
 
-You get 7 attempts to try and guess the code
-Numbers must be between 0-9
-Dont try and play with too many boxes as you will lose
+-You get 7 attempts to try and guess the code
+-Numbers must be between 0-9
+-Dont try and play with too many boxes as you will lose
 
 #Approach/How it works
 
