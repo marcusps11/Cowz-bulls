@@ -1,5 +1,5 @@
 # Cowz-bulls/Escape
-**WDI project 1**
+##WDI project 1
 
 Escape is based on the old game Cows and Bulls.
 
