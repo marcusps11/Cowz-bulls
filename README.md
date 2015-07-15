@@ -16,8 +16,10 @@ You have to let El Chapo Escape otherwise he is going to kill you and your famil
 #Build
 HTLM5, JQUERY, Javascript,Googlefonts
 
+#Link
+Play it here! 
 
-Play it here! https://bibliotheque-monsieur-1632.herokuapp.com/
+https://bibliotheque-monsieur-1632.herokuapp.com/
 
 Screen Shot 2015-07-15 at 16.01.58
 
