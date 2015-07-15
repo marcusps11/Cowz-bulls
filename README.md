@@ -14,7 +14,7 @@ Answer: 1 Sineloa and 2 Zetas. (The Sineloa is "2", the Zetas are "4" and "1".)
 You have to let El Chapo Escape otherwise he is going to kill you and your family.
 
 #Build
-HTLM5, JQUERY, Javascript,Googlefonts
+HTLM5, JQUERY, Javascript,Googlefonts,CSS
 
 #Link
 Play it here! 
@@ -24,7 +24,7 @@ https://bibliotheque-monsieur-1632.herokuapp.com/
 Screen Shot 2015-07-15 at 16.01.58
 
 
-#Rules
+##Rules
 
 -You get 7 attempts to try and guess the code
 -Numbers must be between 0-9
@@ -38,6 +38,10 @@ It is then the users turn to guess the value of the boxes.  Once they press the 
 
 A player wins when they have all Sineloas.  The padlock will then open.
 
+The players previous go's are written to the scoreboard using innerHTML.
+
 #Problems
 
 Main problem was from my dodgy code and not knowing how to do something properly.  I managed to break down the logic in my head but when I put it into practive I had syntax errors.
+
+
