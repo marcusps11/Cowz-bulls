@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///Users/marcusps/Desktop/development/Cowz-bulls/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Bulls &amp; Cows</title>
+	<link href="./Bulls & Cows_files/css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./Bulls & Cows_files/style.css">
+	<script type="text/javascript" src="./Bulls & Cows_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./Bulls & Cows_files/app.js"></script>
+</head>
+<body>
+
+	<header>
+		<div id="overlay">
+			<h1>Escape</h1>
+
+			<div id="text-container">
+				<p>You have been hired by El Chapo Guzman to help him escape from prison.
+					Between you and freedom is one simple combination lock.  Help him escape or
+					you will pay with your life.</p>
+					<p> The combination is made up of numbers between 0-9 and you have 7 attempts to guess.
+						As a clue you will be told either Zeta,Sineloa or nothing.</p>
+						<p>Sineloa's = correct code, correct position.</p>
+						<p>Zetas = correct code, wrong position.</p>
+						<br>
+						<h3>Select length of code you want to break.</h3>
+						<input id="numberOfCode" type="hidden" class="begin" value="2">
+						<button id="submitButton" class="begin" style="display: none;">Play</button>
+					</div>
+					<img src="./Bulls & Cows_files/el_chapo.png" class="chapo">
+				</div>
+			</header>
+
+
+			<main class="content">
+				<div id="padlock">
+					<img src="./Bulls & Cows_files/padlock.png" id="myimage">
+					<div id="boxes"><input type="number" id="num0" class="numbers" min="0" max="9"><input type="number" id="num1" class="numbers" min="0" max="9"></div>
+
+					<img id="key" src="./Bulls & Cows_files/key.png">
+				</div>
+
+				<div class="section1">
+					<div id="scores" class="scores">
+						<h2>Attempts</h2>
+					</div>
+					<div id="scoreboard1" class="scores">
+<!-- 	<img src="sineloa.png">
+-->	<h2>Zetas</h2>
+</div>
+<div id="scoreboard2" class="scores">
+<!-- 	<img src="mexico.png">
+-->	<h2>Sineloa's</h2>
+
+</div>
+
+
+<input type="button" id="reset" class="begin" value="Reset">
+<div id="display">
+	<input type="text" id="display" value="">
+</div>
+</div>
+
+
+</main>
+
+
+
+
+
+
+
+
+</body></html>
